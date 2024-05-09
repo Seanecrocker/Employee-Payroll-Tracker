@@ -33,6 +33,7 @@ const collectEmployees = function() {
     }
 
     // Return the array of employee objects
+    console.log(employees);
     return employees;
 }
 
@@ -45,9 +46,12 @@ const displayAverageSalary = function(employeesArray) {
     if (employeesArray.length > 0) {
         const totalSalary = employeesArray.reduce((acc, employee) => acc + employee.salary, 0);
         const averageSalary = totalSalary / employeesArray.length;
+        console.log(`Average Salary: ${averageSalary}`);
+        console.log(`Total Salary: ${totalSalary}`);
         alert("Average Salary: " + averageSalary.toLocaleString("en-US", {
             style: "currency",
             currency: "USD"
+            
         }));
     } else {
         // If there are no employees, display a message
@@ -125,27 +129,3 @@ const trackEmployeeData = function() {
 
 // Add event listener to 'Add Employees' button
 addEmployeesBtn.addEventListener('click', trackEmployeeData);
-
-
-// script.js
-
-// // Function to handle the click event of the "Add Employee" button
-// document.getElementById("add-employees-btn").addEventListener("click", function() {
-//     // Display a prompt to enter employee details
-//     var firstName = prompt("Enter the first name of the employee:");
-//     var lastName = prompt("Enter the last name of the employee:");
-//     var salary = prompt("Enter the salary of the employee:");
-
-//     // Validate if the user entered all required details
-//     if (firstName && lastName && salary) {
-//         // Create a new row in the employee table with the entered details
-//         var newRow = document.createElement("tr");
-//         newRow.innerHTML = "<td>" + firstName + "</td><td>" + lastName + "</td><td>" + salary + "</td>";
-        
-//         // Append the new row to the employee table
-//         document.getElementById("employee-table").appendChild(newRow);
-//     } else {
-//         // If any required detail is missing, show an alert
-//         alert("Please enter all details of the employee.");
-//     }
-// });
